@@ -9,6 +9,7 @@ node 'master2.puppet.vm'{
         file {'/opt/README':
           ensure => file,
           content => "Welcome to ${fqdn}\n",
+            }
 }
 
 node /^web/{
