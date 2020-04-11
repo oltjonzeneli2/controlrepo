@@ -3,6 +3,7 @@
  	 dockeragent::node {'web.puppet.vm':}
        dockeragent::node {'web1.puppet.vm':}
  	 dockeragent::node {'db.puppet.vm':}
+       dockeragent::node {'minetest.puppet.vm'}
        
       host {'web.puppet.vm':
             ensure => present,
