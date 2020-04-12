@@ -5,6 +5,7 @@ class minecraft {
   file {'/opt/minecraft/minecraft_server.jar':
     ensure => file,
     source => 'http://s3.amazonaws.com/MinecraftDownload/launcher/minecraft_server.jar'
+    before => Service['minecraft'],
   }
   package {'java':
     ensure => present,
@@ -19,6 +20,7 @@ class minecraft {
   }
   service {'minecraft':
     ensure => running,
-    enable => true,  
+    enable => true, 
+    require => [Package['java'],File['/opt/minecraft/eula.txt'],File['/etc/systemd/system/minecraft.service']],
   }
 }
