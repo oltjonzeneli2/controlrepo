@@ -4,7 +4,7 @@ class minecraft {
   }
   file {'/opt/minecraft/minecraft_server.jar':
     ensure => file,
-    source => 'http://s3.amazonaws.com/MinecraftDownload/launcher/minecraft_server.jar'
+    source => 'http://s3.amazonaws.com/MinecraftDownload/launcher/minecraft_server.jar',
     before => Service['minecraft'],
   }
   package {'java':
